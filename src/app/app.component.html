@@ -1,0 +1,70 @@
+<div class="container-fluid">
+  <!-- 页头 -->
+  <div class="page-header">
+    <div class="row">
+      <div class="col-md-2">
+        <h1>Clubook</h1>
+      </div>
+      <div class="col-md-5">
+        <div class="input-group">
+          <input type="text" class="form-control" placeholder="Search for...">
+          <span class="input-group-btn">
+            <button class="btn btn-default" type="button">
+              <i class="glyphicon glyphicon-search"></i>
+            </button>
+          </span>
+        </div>
+      </div>
+
+
+      <div *ngIf="!currentUser?.userName" class="col-md-2 col-md-offset-3">
+        <div class="btn-group" role="group" aria-label="...">
+          <button type="button" class="btn btn-default" routerLink="login">登陆</button>
+          <button type="button" class="btn btn-default" routerLink="register">注册</button>
+        </div>
+      </div>
+
+      <ul *ngIf="currentUser?.userName" class="col-md-2 col-md-offset-3 nav navbar-nav navbar-right">
+        <li routerLinkActive="active">
+          <a>欢迎您：{{currentUser?.userName}}</a>
+        </li>
+
+        <li>
+          <a href="javascript:void(0);" (click)="doLogout()">退出</a>
+        </li>
+      </ul>
+
+
+    </div>
+  </div>
+
+
+  <div class="row">
+    <!-- 侧栏导航 -->
+    <div class="col-md-2">
+      <ul class="nav nav-pills nav-stacked">
+        <li *ngIf="currentUser?.userName" role="presentation" routerLinkActive="active">
+          <a routerLink="home">首页</a>
+        </li>
+        <li role="presentation" routerLinkActive="active">
+          <a routerLink="discover">发现</a>
+        </li>
+        <li *ngIf="!currentUser?.userName" role="presentation" routerLinkActive="active">
+          <a routerLink="register">加入Clubook</a>
+        </li>
+        <li *ngIf="currentUser?.userName" role="presentation" routerLinkActive="active">
+          <a routerLink="corporation">社团</a>
+        </li>
+        <li *ngIf="currentUser?.userName" role="presentation" routerLinkActive="active">
+          <a routerLink="circle">圈子</a>
+        </li>
+
+      </ul>
+
+    </div>
+    <!-- 主体内容 -->
+    <div class="col-md-10">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</div>

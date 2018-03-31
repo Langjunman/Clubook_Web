@@ -12,13 +12,13 @@
 <div class="ui two column centered grid">
   <div class="two centered column">
     <nz-carousel [nzVertical]="true" [nzAutoPlay]="true" [nzEffect]="fade">
-      <circle-card nz-carousel-content *ngFor="let myCircle of circleList" [circle]="myCircle">
+      <circle-card nz-carousel-content *ngFor="let myCircle of circleList" [circles]="myCircle">
       </circle-card>
     </nz-carousel>
   </div>
   <div class="two centered column">
     <nz-carousel [nzVertical]="true" [nzAutoPlay]="true" [nzEffect]="fade">
-      <circle-card nz-carousel-content *ngFor="let myCircle of circleList" [circle]="myCircle">
+      <circle-card nz-carousel-content *ngFor="let myCircle of circleList" [circles]="myCircle">
       </circle-card>
     </nz-carousel>
   </div>

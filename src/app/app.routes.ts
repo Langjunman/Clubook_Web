@@ -5,8 +5,9 @@ import { DiscoverComponent } from './discover/discover.component';
 import { UserLoginComponent } from './user/user-login/user-login.component';
 import { UserRegisterComponent } from './user/user-register/user-register.component';
 import { CircleComponent } from './circle/circle.component';
-import { CorporationComponent } from './corporation/corporation.component';
+import {ClubComponent} from './club/club.component';
 import { HomeComponent } from './home/home.component';
+import {UserInformationComponent} from './user/user-information/user-information.component';
 
 export const appRoutes = [
     {
@@ -31,13 +32,17 @@ export const appRoutes = [
         component: CircleComponent
     },
     {
-        path: 'corporation',
-        component: CorporationComponent
+        path: 'club',
+        component: ClubComponent
     },
     {
         path: 'home',
         component: HomeComponent
     },
+    {
+        path: 'information',
+        component:UserInformationComponent
+    }
     // {
     //     path: '**',//fallback router must in the last
     //     loadChildren: './home/home.module#HomeModule'

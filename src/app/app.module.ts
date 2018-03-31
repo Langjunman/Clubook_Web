@@ -19,7 +19,7 @@ import { EqualValidator } from './user/user-register/directives/equal-validator.
 
 import { UserLoginComponent } from './user/user-login/user-login.component';
 import { UserRegisterComponent } from './user/user-register/user-register.component';
-import { CorporationComponent } from './corporation/corporation.component';
+import {ClubComponent} from './club/club.component';
 import { CircleComponent } from './circle/circle.component';
 import { HomeComponent } from './home/home.component';
 import { NotificationsComponent } from './notifications/notifications.component';
@@ -28,7 +28,10 @@ import { PassageCardComponent } from './home/passage-card/passage-card.component
 import { CircleCardComponent } from './discover/circle-card/circle-card.component';
 import { CircleListComponent } from './discover/circle-list/circle-list.component';
 import { CreatCircleComponent } from './circle/creat-circle/creat-circle.component';
-import { CreatCorporationComponent } from './corporation/creat-corporation/creat-corporation.component';
+import { CreateClubComponent } from './club/club/create-club.component';
+import { CommentComponent } from './comment/comment.component';
+import { ClubCardComponent } from './club/club-card/club-card.component';
+import {UserInformationComponent} from './user/user-information/user-information.component';
 
 
 @NgModule({
@@ -38,7 +41,6 @@ import { CreatCorporationComponent } from './corporation/creat-corporation/creat
     DiscoverComponent,
     UserLoginComponent,
     UserRegisterComponent,
-    CorporationComponent,
     CircleComponent,
     HomeComponent,
     NotificationsComponent,
@@ -47,7 +49,11 @@ import { CreatCorporationComponent } from './corporation/creat-corporation/creat
     CircleCardComponent,
     CircleListComponent,
     CreatCircleComponent,
-    CreatCorporationComponent
+    CommentComponent,
+    ClubComponent,
+    CreateClubComponent,
+    ClubCardComponent,
+    UserInformationComponent
   ],
   imports: [
     BrowserModule,

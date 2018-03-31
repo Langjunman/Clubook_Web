@@ -12,7 +12,7 @@ import { UserRegisterService } from './user-register.service';
 export class UserRegisterComponent implements OnInit {
 
   public userForm: FormGroup;
-  public userInfo: User = new User();
+  public userInfo: User;
 
   public formErrors = {
     'userName': '',

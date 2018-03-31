@@ -1,9 +1,8 @@
-export class Circle {
+export class Circles {
 
     constructor(
         public circleId: number,
         public circleName: string,
-        public circleMembers: number,
-        public circleImage: string
+        public circleMembers: number
     ) { }
 }

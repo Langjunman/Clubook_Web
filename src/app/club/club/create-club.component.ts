@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'creat-corporation',
-  templateUrl: './creat-corporation.component.html',
-  styleUrls: ['./creat-corporation.component.scss']
+  selector: 'create-club',
+  templateUrl: './create-club.component.html',
+  styleUrls: ['./create-club.component.scss']
 })
-export class CreatCorporationComponent implements OnInit {
+export class CreateClubComponent implements OnInit {
 
   isVisible = false;
   isConfirmLoading = false;
@@ -26,7 +26,7 @@ export class CreatCorporationComponent implements OnInit {
     this.isVisible = false;
   }
 
-  
+
   constructor() { }
 
   ngOnInit() {

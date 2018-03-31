@@ -1,8 +1,16 @@
+import {Circles} from '../../discover/model/circle-model';
+import {Clubs} from '../../club/model/club-model';
+
 export class User {
-    id: number;
-    userName: string;
-    nickName: string;
-    password: string;
-    email: string;
-    confirmPassword: string;
+  constructor(
+   public id: number,
+  public avatar: string,
+  public userName: string,
+  public nickName: string,
+  public password: string,
+  public email: string,
+  public confirmPassword: string,
+  public joinedcircles:Circles[],
+  public joinedclubs:Clubs[]
+  ){}
 }

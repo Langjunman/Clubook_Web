@@ -1,0 +1,17 @@
+
+
+<div >
+  <div class="ui container">
+    <h3 class="ui left floated header">你的社团</h3>
+    <create-club></create-club>
+  </div>
+
+  <div>
+    <button class="ui button">查看更多</button>
+  </div>
+
+    <club-card class="col-md-4 col-sm-4 col-lg-4 t1" *ngFor="let myClub of clubList" [clubs]="myClub">
+    </club-card>
+
+
+</div>

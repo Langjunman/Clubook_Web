@@ -8,6 +8,7 @@ import { CircleComponent } from './circle/circle.component';
 import {ClubComponent} from './club/club.component';
 import { HomeComponent } from './home/home.component';
 import {UserInformationComponent} from './user/user-information/user-information.component';
+import {UserProfileComponent} from './user/user-profile/user-profile.component';
 
 export const appRoutes = [
     {
@@ -40,8 +41,12 @@ export const appRoutes = [
         component: HomeComponent
     },
     {
-        path: 'information',
+        path: 'userinformation',
         component:UserInformationComponent
+    },
+    {
+        path: 'profile',
+        component: UserProfileComponent
     }
     // {
     //     path: '**',//fallback router must in the last

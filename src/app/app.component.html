@@ -17,14 +17,16 @@
       </div>
 
 
-      <div *ngIf="!currentUser?.userName" class="col-md-2 col-md-offset-3 btn-group" role="group"aria-label="..." >
+      <div *ngIf="!currentUser?.userName" class="col-md-2 col-md-offset-3">
+        <div class="btn-group" role="group" aria-label="...">
           <button type="button" class="btn btn-default" routerLink="login">登陆</button>
           <button type="button" class="btn btn-default" routerLink="register">注册</button>
+        </div>
       </div>
 
       <ul *ngIf="currentUser?.userName" class="col-md-2 col-md-offset-3 nav navbar-nav navbar-right">
-        <li routerLink="information">
-          <a>欢迎您：{{currentUser?.userName}}</a>
+        <li routerLinkActive="active">
+          <a routerLink="profile">欢迎您：{{currentUser?.userName}}</a>
         </li>
 
         <li>
@@ -51,7 +53,7 @@
           <a routerLink="register">加入Clubook</a>
         </li>
         <li *ngIf="currentUser?.userName" role="presentation" routerLinkActive="active">
-          <a routerLink="cl">社团</a>
+          <a routerLink="club">社团</a>
         </li>
         <li *ngIf="currentUser?.userName" role="presentation" routerLinkActive="active">
           <a routerLink="circle">圈子</a>

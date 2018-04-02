@@ -10,7 +10,7 @@ import { User } from '../model/user-model';
   styleUrls: ['./user-login.component.scss']
 })
 export class UserLoginComponent implements OnInit {
-  public user: User ;
+  public user: User = new User();
   public error: Error;
 
   constructor(

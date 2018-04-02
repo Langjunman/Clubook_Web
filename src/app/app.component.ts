@@ -30,21 +30,21 @@ export class AppComponent {
     // console.log(this.currentUser);
     this.userLoginService.currentUser
       .merge(this.userRegisterService.currentUser)
-        .subscribe(
-          data=>{
-            console.log(data);
-            this.currentUser = data;
-            let activatedRouteSnapshot: ActivatedRouteSnapshot = this.activatedRoute.snapshot;
-            let routerState: RouterState = this.router.routerState;
-            let routerStateSnapshot: RouterStateSnapshot = routerState.snapshot;
+      .subscribe(
+        data=>{
+          console.log(data);
+          this.currentUser = data;
+          let activatedRouteSnapshot: ActivatedRouteSnapshot = this.activatedRoute.snapshot;
+          let routerState: RouterState = this.router.routerState;
+          let routerStateSnapshot: RouterStateSnapshot = routerState.snapshot;
 
-            //如果是从/login这个URL进行的登录，跳转到首页，否则什么都不做
-            if (routerStateSnapshot.url.indexOf("/login") != -1) {
-              this.router.navigateByUrl("/home");
-            }
-          },
-          error=> console.error(error)
-        );
+          //如果是从/login这个URL进行的登录，跳转到首页，否则什么都不做
+          if (routerStateSnapshot.url.indexOf("/login") != -1) {
+            this.router.navigateByUrl("/home");
+          }
+        },
+        error=> console.error(error)
+      );
   }
 
 
@@ -58,5 +58,5 @@ export class AppComponent {
   createNotification = (type,text,p) => {
     this._notification.create(type, `${text}`, `${p}`);
   };
-  
+
 }

@@ -2,7 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { NgZorroAntdModule } from 'ng-zorro-antd';
 import { RouterModule } from '@angular/router';
-import { ReactiveFormsModule,FormsModule } from '@angular/forms';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { HttpModule, JsonpModule, Http } from '@angular/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
@@ -32,6 +32,8 @@ import { CreateClubComponent } from './club/club/create-club.component';
 import { CommentComponent } from './comment/comment.component';
 import { ClubCardComponent } from './club/club-card/club-card.component';
 import {UserInformationComponent} from './user/user-information/user-information.component';
+import {UserProfileComponent} from './user/user-profile/user-profile.component';
+import {FormControlComponent} from './user/user-profile/dynamic-form/form-control.component';
 
 
 @NgModule({
@@ -53,7 +55,9 @@ import {UserInformationComponent} from './user/user-information/user-information
     ClubComponent,
     CreateClubComponent,
     ClubCardComponent,
-    UserInformationComponent
+    UserInformationComponent,
+    UserProfileComponent,
+    FormControlComponent
   ],
   imports: [
     BrowserModule,

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {Clubs} from './model/club-model';
 
+
 @Component({
   selector: 'club',
   templateUrl: './club.component.html',

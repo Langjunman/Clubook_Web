@@ -28,7 +28,7 @@ import { PassageCardComponent } from './home/passage-card/passage-card.component
 import { CircleCardComponent } from './discover/circle-card/circle-card.component';
 import { CircleListComponent } from './discover/circle-list/circle-list.component';
 import { CreatCircleComponent } from './circle/creat-circle/creat-circle.component';
-import { CreateClubComponent } from './club/club/create-club.component';
+import { CreateClubComponent } from './club/create-club/create-club.component';
 import { CommentComponent } from './comment/comment.component';
 import { ClubCardComponent } from './club/club-card/club-card.component';
 import {UserInformationComponent} from './user/user-information/user-information.component';

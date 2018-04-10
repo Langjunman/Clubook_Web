@@ -27,13 +27,12 @@ import { WritePassageComponent } from './home/write-passage/write-passage.compon
 import { PassageCardComponent } from './home/passage-card/passage-card.component';
 import { CircleCardComponent } from './discover/circle-card/circle-card.component';
 import { CircleListComponent } from './discover/circle-list/circle-list.component';
-import { CreatCircleComponent } from './circle/creat-circle/creat-circle.component';
-import { CreateClubComponent } from './club/create-club/create-club.component';
 import { CommentComponent } from './comment/comment.component';
 import { ClubCardComponent } from './club/club-card/club-card.component';
 import {UserInformationComponent} from './user/user-information/user-information.component';
 import {UserProfileComponent} from './user/user-profile/user-profile.component';
 import {FormControlComponent} from './user/user-profile/dynamic-form/form-control.component';
+import { CircleDetailComponent } from './circle/circle-detail/circle-detail.component';
 
 
 @NgModule({
@@ -50,14 +49,13 @@ import {FormControlComponent} from './user/user-profile/dynamic-form/form-contro
     PassageCardComponent,
     CircleCardComponent,
     CircleListComponent,
-    CreatCircleComponent,
     CommentComponent,
     ClubComponent,
-    CreateClubComponent,
     ClubCardComponent,
     UserInformationComponent,
     UserProfileComponent,
-    FormControlComponent
+    FormControlComponent,
+    CircleDetailComponent
   ],
   imports: [
     BrowserModule,

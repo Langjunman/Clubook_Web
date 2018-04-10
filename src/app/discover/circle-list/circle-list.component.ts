@@ -11,12 +11,12 @@ export class CircleListComponent implements OnInit {
 
   constructor() {
     this.circleList = [
-      new Circles(1, "失物招领", 2324),
-      new Circles(1, "失物招领", 2324),
-      new Circles(1, "失物招领", 2324),
-      new Circles(1, "失物招领", 2324),
-      new Circles(1, "失物招领", 2324),
-      new Circles(2, "拼车", 2324)
+      new Circles(1, "失物招领", 2324,"http://placehold.it/820x230",''),
+      new Circles(1, "失物招领", 2324,"http://placehold.it/820x230",''),
+      new Circles(1, "失物招领", 2324,"http://placehold.it/820x230",''),
+      new Circles(1, "失物招领", 2324,"http://placehold.it/820x230",''),
+      new Circles(1, "失物招领", 2324,"http://placehold.it/820x230",''),
+      new Circles(2, "拼车", 2324,"http://placehold.it/820x230",'')
     ];
    }
 

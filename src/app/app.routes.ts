@@ -9,6 +9,8 @@ import {ClubComponent} from './club/club.component';
 import { HomeComponent } from './home/home.component';
 import {UserInformationComponent} from './user/user-information/user-information.component';
 import {UserProfileComponent} from './user/user-profile/user-profile.component';
+import {CircleDetailComponent} from './circle/circle-detail/circle-detail.component';
+import {ClubDetailComponent} from './club/club-detail/club-detail.component';
 
 export const appRoutes = [
     {
@@ -32,6 +34,13 @@ export const appRoutes = [
         path: 'circle',
         component: CircleComponent
     },
+    {
+        path: 'circled/:circleId',
+        component: CircleDetailComponent
+    },{
+        path: 'clubd/:clubId',
+        component: ClubDetailComponent
+  },
     {
         path: 'club',
         component: ClubComponent

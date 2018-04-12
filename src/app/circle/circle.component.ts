@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-import {Circles} from '../discover/model/circle-model';
+import {Component, Input, OnInit} from '@angular/core';
+import {Circles, CircleService} from '../share-di/circle.service';
+
 
 @Component({
   selector: 'circle',
@@ -7,17 +8,12 @@ import {Circles} from '../discover/model/circle-model';
   styleUrls: ['./circle.component.scss']
 })
 export class CircleComponent implements OnInit {
+  @Input ()
   circleList: Circles[];
+  @Input()
+  circles: Circles;
+  constructor(private circleService: CircleService) {
 
-  constructor() {
-    this.circleList = [
-      new Circles(1, "失物招领", 2324,"http://placehold.it/820x230",''),
-      new Circles(1, "失物招领", 2324,"http://placehold.it/820x230",''),
-      new Circles(1, "失物招领", 2324,"http://placehold.it/820x230",''),
-      new Circles(1, "失物招领", 2324,"http://placehold.it/820x230",''),
-      new Circles(1, "失物招领", 2324,"http://placehold.it/820x230",''),
-      new Circles(2, "拼车", 2324,"http://placehold.it/820x230",'')
-    ];
   }
   isVisible = false;
   isConfirmLoading = false;
@@ -47,7 +43,7 @@ export class CircleComponent implements OnInit {
   }
 
   ngOnInit() {
-
+    this.circleList = this.circleService.getCircles();
   }
 
 }

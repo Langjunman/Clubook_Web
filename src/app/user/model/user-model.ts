@@ -1,5 +1,3 @@
-import {Circles} from '../../discover/model/circle-model';
-import {Clubs} from '../../club/model/club-model';
 
 export class User {
   id: number;

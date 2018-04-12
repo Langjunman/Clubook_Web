@@ -46,5 +46,22 @@
 
 
 
-<circle-card class="col-md-4 col-sm-4 col-lg-4 t1" *ngFor="let myCircle of circleList" [circles]="myCircle">
-</circle-card>
+
+
+<div class="ui centered grey card col-md-4 col-sm-4 col-lg-4 t1" *ngFor="let circles of circleList"  >
+  <a class="image" href="#" [routerLink]="['/circled',circles.circleId]">
+    <img src={{circles.circleAvatar}}>
+  </a>
+
+  <a class="content" href="#" [routerLink]="['/circled',circles.circleId]">
+    <div class="header">{{circles.circleName}}</div>
+    <div class="description">
+      {{circles.circleMembers}} 个成员
+    </div>
+  </a>
+  <div class="extra content">
+    <a>
+      加入
+    </a>
+  </div>
+</div>

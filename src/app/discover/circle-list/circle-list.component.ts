@@ -1,27 +1,31 @@
-import { Component, OnInit } from '@angular/core';
-import {Circles} from '../model/circle-model';
+import {Component, Input, OnInit} from '@angular/core';
+import {Circles, CircleService} from '../../share-di/circle.service';
+import {Clubs, ClubService} from '../../share-di/club.service';
+import {ActivatedRoute} from '@angular/router';
 @Component({
   selector: 'circle-list',
   templateUrl: './circle-list.component.html',
   styleUrls: ['./circle-list.component.scss']
 })
 export class CircleListComponent implements OnInit {
-
+  @Input()
   circleList: Circles[];
+  @Input()
+  clubList: Clubs[];
+  @Input ()
+  clubs: Clubs;
+  @Input()
+  circles: Circles;
+  constructor(    private routerInfo: ActivatedRoute,
+                  private clubService: ClubService,
+                  private circleService: CircleService
+  ) {
 
-  constructor() {
-    this.circleList = [
-      new Circles(1, "失物招领", 2324,"http://placehold.it/820x230",''),
-      new Circles(1, "失物招领", 2324,"http://placehold.it/820x230",''),
-      new Circles(1, "失物招领", 2324,"http://placehold.it/820x230",''),
-      new Circles(1, "失物招领", 2324,"http://placehold.it/820x230",''),
-      new Circles(1, "失物招领", 2324,"http://placehold.it/820x230",''),
-      new Circles(2, "拼车", 2324,"http://placehold.it/820x230",'')
-    ];
    }
 
   ngOnInit() {
-
+    this.clubList = this.clubService.getClubs();
+    this.circleList = this.circleService.getCircles();
   }
 
 }

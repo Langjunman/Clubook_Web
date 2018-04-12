@@ -2,7 +2,10 @@
   background: #337ab7;
   overflow: hidden;
   text-align: center;
-
+  overflow: auto;
   padding: 3px 0;
 }
 
+.t2{
+  display: flex!important;
+}

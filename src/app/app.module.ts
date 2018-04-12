@@ -25,14 +25,15 @@ import { HomeComponent } from './home/home.component';
 import { NotificationsComponent } from './notifications/notifications.component';
 import { WritePassageComponent } from './home/write-passage/write-passage.component';
 import { PassageCardComponent } from './home/passage-card/passage-card.component';
-import { CircleCardComponent } from './discover/circle-card/circle-card.component';
 import { CircleListComponent } from './discover/circle-list/circle-list.component';
 import { CommentComponent } from './comment/comment.component';
-import { ClubCardComponent } from './club/club-card/club-card.component';
 import {UserInformationComponent} from './user/user-information/user-information.component';
 import {UserProfileComponent} from './user/user-profile/user-profile.component';
 import {FormControlComponent} from './user/user-profile/dynamic-form/form-control.component';
 import { CircleDetailComponent } from './circle/circle-detail/circle-detail.component';
+import {CircleService} from './share-di/circle.service';
+import {ClubService} from './share-di/club.service';
+import { ClubDetailComponent } from './club/club-detail/club-detail.component';
 
 
 @NgModule({
@@ -47,15 +48,14 @@ import { CircleDetailComponent } from './circle/circle-detail/circle-detail.comp
     NotificationsComponent,
     WritePassageComponent,
     PassageCardComponent,
-    CircleCardComponent,
     CircleListComponent,
     CommentComponent,
     ClubComponent,
-    ClubCardComponent,
     UserInformationComponent,
     UserProfileComponent,
     FormControlComponent,
-    CircleDetailComponent
+    CircleDetailComponent,
+    ClubDetailComponent
   ],
   imports: [
     BrowserModule,
@@ -71,7 +71,9 @@ import { CircleDetailComponent } from './circle/circle-detail/circle-detail.comp
   ],
   providers: [
     UserLoginService,
-    UserRegisterService
+    UserRegisterService,
+    CircleService,
+    ClubService
   ],
   bootstrap: [AppComponent]
 })

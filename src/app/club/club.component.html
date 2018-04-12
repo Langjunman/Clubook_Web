@@ -15,7 +15,7 @@
         <div class="ui form">
           <div class="field">
             <label >社团名称:</label>
-            <input placeholder="为社团命名" name="clubName" [(ngModel)]="newName">
+            <input placeholder="为社团命名" name="clubN" [(ngModel)]="newName">
           </div>
           <div class="field">
             <label >社团图标:</label>
@@ -50,8 +50,24 @@
   </div>
 
 
-    <club-card class="col-md-4 col-sm-4 col-lg-4 t1" *ngFor="let myClub of clubList" [clubs]="myClub">
-    </club-card>
+  <div class="ui centered grey card col-md-4 col-sm-4 col-lg-4 t1" *ngFor="let clubs of clubList">
+    <a class="image" href="#" [routerLink]="['/clubd',clubs.clubId]">
+      <img src={{clubs.clubAvatar}}>
+    </a>
+
+    <a class="content" href="#" [routerLink]="['/clubd',clubs.clubId]">
+      <div class="header">{{clubs.clubName}}</div>
+      <div class="description">
+        {{clubs.clubMembers}} 个成员
+      </div>
+    </a>
+    <div class="extra content">
+      <a>
+        加入
+      </a>
+    </div>
+  </div>
+
 
 
 </div>

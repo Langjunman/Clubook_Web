@@ -1,48 +1,53 @@
 
 <div nz-row [nzType]="'flex'">
   <div nz-col [nzSpan]="10" [nzOrder]="1">
-    <h3 class="ui header">社团</h3>
+    <h1 class="ui header">社团</h1>
 
   </div>
   <div nz-col [nzSpan]="10" [nzOrder]="2" [nzOffset]="'2'">
-    <h3 class="ui header">圈子</h3>
+    <h1 class="ui header">圈子</h1>
   </div>
 
 </div>
 <div nz-row [nzType]="'flex'">
   <div nz-col [nzSpan]="10" [nzOrder]="1" class="t2">
     <nz-carousel [nzAutoPlay]="true" [nzEffect]="fade">
-      <div nz-carousel-content class="ui  card " *ngFor="let clubs of clubList">
-
-          <a class="image" [routerLink]="['/clubd',clubs.clubId]"><img src={{clubs.clubAvatar}}></a>
-          <a class="content" [routerLink]="['/clubd',clubs.clubId]">
-            <div class="header">{{clubs.clubName}}</div>
-            <div class="description">
-              {{clubs.clubMembers}} 个成员
+      <div nz-carousel-content  *ngFor="let clubs of clubList">
+        <nz-card>
+          <ng-template #body>
+            <div class="custom-image">
+            <img  class="img-responsive center-block element" src={{clubs.clubAvatar}}>
             </div>
-          </a>
-          <div class="extra content">
-            <a>加入</a>
-          </div>
-        </div>>
+            <div class="custom-card">
+              <a class="content" [routerLink]="['/clubd',clubs.clubId]">
+                <div class="header"><h2> {{clubs.clubName}}</h2></div>
+                <div class="description"><h4>{{clubs.clubMembers}} 个成员</h4></div>
+              </a>
+              <div class="extra content"><a><h3>加入</h3></a></div>
+            </div>
+          </ng-template>
+        </nz-card>
+      </div>
 
     </nz-carousel>
   </div>
   <div nz-col [nzSpan]="10" [nzOrder]="2" [nzOffset]="'2'">
     <nz-carousel  [nzAutoPlay]="true" [nzEffect]="fade">
-      <div  nz-carousel-content class="ui card " *ngFor="let circles of circleList"  >
-        <a class="image"  [routerLink]="['/circled',circles.circleId]"><img src={{circles.circleAvatar}}></a>
-        <a class="content"  [routerLink]="['/circled',circles.circleId]">
-          <div class="header">{{circles.circleName}}</div>
-          <div class="description">
-            {{circles.circleMembers}} 个成员
-          </div>
-        </a>
-        <div class="extra content">
-          <a>
-            加入
-          </a>
-        </div>
+      <div  nz-carousel-content  *ngFor="let circles of circleList"  >
+        <nz-card>
+          <ng-template #body>
+            <div class="custom-image">
+              <img  class="img-responsive center-block element" src={{circles.circleAvatar}}>
+            </div>
+            <div class="custom-card">
+              <a class="content"  [routerLink]="['/circled',circles.circleId]">
+                <div class="header"><h2> {{circles.circleName}}</h2></div>
+                <div class="description"><h4> {{circles.circleMembers}} 个成员</h4></div>
+              </a>
+              <div class="extra content"><a><h3>加入</h3></a></div>
+            </div>
+          </ng-template>
+        </nz-card>
       </div>
     </nz-carousel>
   </div>

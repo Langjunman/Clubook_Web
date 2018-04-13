@@ -1,0 +1,23 @@
+<div class="post-detail-main-container" >
+  <div class="row">
+    <div class="col-sm-9">
+      <div class="post-detail-container">
+        <div class="row">
+          <div class="col-sm-12">
+            <h4>{{ cie.title }}</h4>
+            <p>{{ cie.postTime }}</p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-12" [innerHTML]="cie.content">
+          </div>
+          <div>
+            <img src="{{cie.poster}}">
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-3">
+    </div>
+  </div>
+</div>

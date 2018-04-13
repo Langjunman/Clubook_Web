@@ -11,6 +11,8 @@ import {UserInformationComponent} from './user/user-information/user-information
 import {UserProfileComponent} from './user/user-profile/user-profile.component';
 import {CircleDetailComponent} from './circle/circle-detail/circle-detail.component';
 import {ClubDetailComponent} from './club/club-detail/club-detail.component';
+import {CircleEventComponent} from './circle/circle-event/circle-event.component';
+import {ClubEventComponent} from './club/club-event/club-event.component';
 
 export const appRoutes = [
     {
@@ -37,10 +39,19 @@ export const appRoutes = [
     {
         path: 'circled/:circleId',
         component: CircleDetailComponent
-    },{
+    },
+    {
+        path: 'circle/circleEvent/:id',
+        component: CircleEventComponent
+    },
+    {
         path: 'clubd/:clubId',
         component: ClubDetailComponent
-  },
+    },
+    {
+      path: 'club/clubEvent/:id',
+      component: ClubEventComponent
+    },
     {
         path: 'club',
         component: ClubComponent

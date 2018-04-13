@@ -34,6 +34,10 @@ import { CircleDetailComponent } from './circle/circle-detail/circle-detail.comp
 import {CircleService} from './share-di/circle.service';
 import {ClubService} from './share-di/club.service';
 import { ClubDetailComponent } from './club/club-detail/club-detail.component';
+import { CircleEventComponent } from './circle/circle-event/circle-event.component';
+import {CircleEventService} from './share-di/circle-event.service';
+import { ClubEventComponent } from './club/club-event/club-event.component';
+import {ClubEventService} from './share-di/club-event.service';
 
 
 @NgModule({
@@ -55,7 +59,9 @@ import { ClubDetailComponent } from './club/club-detail/club-detail.component';
     UserProfileComponent,
     FormControlComponent,
     CircleDetailComponent,
-    ClubDetailComponent
+    ClubDetailComponent,
+    CircleEventComponent,
+    ClubEventComponent
   ],
   imports: [
     BrowserModule,
@@ -73,7 +79,9 @@ import { ClubDetailComponent } from './club/club-detail/club-detail.component';
     UserLoginService,
     UserRegisterService,
     CircleService,
-    ClubService
+    ClubService,
+    CircleEventService,
+    ClubEventService
   ],
   bootstrap: [AppComponent]
 })

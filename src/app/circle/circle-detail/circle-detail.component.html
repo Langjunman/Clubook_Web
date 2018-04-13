@@ -1,3 +1,23 @@
-<p>
-  circle-detail works!
-</p>
+<div class="post-list-container">
+  <form class="form-vertical" role="form">
+    <div class="row">
+      <div class="col-sm-10">
+
+      </div>
+      <div class="col-sm-2">
+
+      </div>
+    </div>
+  </form>
+  <div class="row">
+    <div class="col-sm-12">
+      <div class="post-item-container" *ngFor="let cie of cieList">
+        <h4>
+          <a [routerLink]="['/circle/circleEvent',cie.id]">{{cie.title}}</a>
+        </h4>
+
+      </div>
+
+    </div>
+  </div>
+</div>

@@ -1,23 +1,23 @@
 <div class="post-detail-main-container" >
   <div class="row">
-    <div class="col-sm-9">
+    <div class="col-sm-12 t1">
       <div class="post-detail-container">
-        <div class="row">
-          <div class="col-sm-12">
-            <h4>{{ cie.title }}</h4>
-            <p>{{ cie.postTime }}</p>
+        <div class="row ">
+          <div class=" postheader">
+            <h1>{{ cie.title }}</h1>
+            <h3>发布者 ：{{ cie.author}}</h3>
+            <h3>发布时间：{{ cie.postTime |date:"MM/dd/yyyy"}}</h3>
           </div>
         </div>
-        <div class="row">
-          <div class="col-sm-12" [innerHTML]="cie.content">
+        <div class="row postcontent ">
+          <div [innerHTML]="'<h3>'+cie.content+'</h3>'">
           </div>
-          <div>
+          <div class="postimg">
             <img src="{{cie.poster}}">
           </div>
         </div>
       </div>
     </div>
-    <div class="col-sm-3">
-    </div>
+
   </div>
 </div>

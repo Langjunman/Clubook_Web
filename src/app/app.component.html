@@ -19,52 +19,52 @@
 
       <div *ngIf="!currentUser?.userName" class="col-md-2 col-md-offset-3">
         <div class="btn-group" role="group" aria-label="...">
-          <button type="button" class="btn btn-default" routerLink="login">登陆</button>
-          <button type="button" class="btn btn-default" routerLink="register">注册</button>
+          <button type="button" class="btn btn-default" routerLink="login"><h4 style="color: #488aff">登陆</h4></button>
+          <button type="button" class="btn btn-default" routerLink="register"><h4 style="color: #488aff">注册</h4></button>
         </div>
       </div>
 
       <ul *ngIf="currentUser?.userName" class="col-md-2 col-md-offset-3 nav navbar-nav navbar-right">
         <li routerLinkActive="active">
-          <a routerLink="profile">欢迎您：{{currentUser?.userName}}</a>
+          <a routerLink="profile"><h4 style="color: #488aff">欢迎您：{{currentUser?.userName}}</h4></a>
         </li>
 
         <li>
-          <a href="javascript:void(0);" (click)="doLogout()">退出</a>
+          <a href="javascript:void(0);" (click)="doLogout()"><h4 style="color: #488aff">退出</h4></a>
         </li>
       </ul>
-
-
     </div>
   </div>
 
 
-  <div class="row">
+  <div class="row  cc">
     <!-- 侧栏导航 -->
-    <div class="col-md-2">
+    <div class="col-md-2 c2">
       <ul class="nav nav-pills nav-stacked">
         <li *ngIf="currentUser?.userName" role="presentation" routerLinkActive="active">
-          <a routerLink="home">首页</a>
+          <a routerLink="home"><h3 style="color: #488aff">首页</h3></a>
         </li>
         <li role="presentation" routerLinkActive="active">
-          <a routerLink="discover">发现</a>
+          <a routerLink="discover"><h3 style="color: #488aff">发现</h3></a>
         </li>
         <li *ngIf="!currentUser?.userName" role="presentation" routerLinkActive="active">
-          <a routerLink="register">加入Clubook</a>
+          <a routerLink="register"><h3 style="color: #488aff">加入Clubook</h3></a>
         </li>
         <li *ngIf="currentUser?.userName" role="presentation" routerLinkActive="active">
-          <a routerLink="club">社团</a>
+          <a routerLink="club"><h3 style="color: #488aff">社团</h3></a>
         </li>
         <li *ngIf="currentUser?.userName" role="presentation" routerLinkActive="active">
-          <a routerLink="circle">圈子</a>
+          <a routerLink="circle"><h3 style="color: #488aff">圈子</h3></a>
         </li>
-
       </ul>
-
     </div>
     <!-- 主体内容 -->
-    <div class="col-md-10">
+    <div class="col-md-10 c1">
       <router-outlet></router-outlet>
     </div>
+  </div>
+
+  <div class="page-footer" style="text-align: center; ">
+    Clubook @2018 By Langjunxia
   </div>
 </div>

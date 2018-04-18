@@ -1,21 +1,11 @@
-<div class="post-list-container">
-  <form class="form-vertical" role="form">
-    <div class="row">
-      <div class="col-sm-10">
+<div class="post-list-container t1">
 
-      </div>
-      <div class="col-sm-2">
-
-      </div>
-    </div>
-  </form>
   <div class="row">
     <div class="col-sm-12">
       <div class="post-item-container" *ngFor="let cie of cieList">
-        <h4>
-          <a [routerLink]="['/circle/circleEvent',cie.id]">{{cie.title}}</a>
-        </h4>
 
+        <div class="col-sm-9"><h3><a [routerLink]="['/circle/circleEvent',cie.id]">{{cie.title}}</a></h3></div>
+        <div class="col-sm-3"><h4>发布时间：{{cie.postTime| date:"MM/dd/yyyy"}}</h4></div>
       </div>
 
     </div>

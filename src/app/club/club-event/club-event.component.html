@@ -1,23 +1,23 @@
 <div class="post-detail-main-container" >
   <div class="row">
-    <div class="col-sm-9">
+    <div class="col-sm-12 t1">
       <div class="post-detail-container">
         <div class="row">
-          <div class="col-sm-12">
-            <h4>{{ cle.title }}</h4>
-            <p>{{ cle.postTime }}</p>
+          <div class=" postheader">
+            <h1>{{ cle.title }}</h1>
+            <h3>发布者 ：{{ cle.author}}</h3>
+            <h3>发布时间：{{ cle.postTime |date:"MM/dd/yyyy" }}</h3>
           </div>
         </div>
-        <div class="row">
-          <div class="col-sm-12" [innerHTML]="cle.content">
+        <div class="row  postcontent">
+          <div [innerHTML]="'<h3>'+cle.content+'</h3>'">
           </div>
-          <div>
+          <div class=" postimg">
             <img src="{{cle.poster}}">
           </div>
         </div>
       </div>
     </div>
-    <div class="col-sm-3">
-    </div>
+
   </div>
 </div>

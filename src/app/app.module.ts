@@ -38,7 +38,7 @@ import { CircleEventComponent } from './circle/circle-event/circle-event.compone
 import {CircleEventService} from './share-di/circle-event.service';
 import { ClubEventComponent } from './club/club-event/club-event.component';
 import {ClubEventService} from './share-di/club-event.service';
-
+import {LoginService} from './share-di/login.service';
 
 @NgModule({
   declarations: [
@@ -81,7 +81,8 @@ import {ClubEventService} from './share-di/club-event.service';
     CircleService,
     ClubService,
     CircleEventService,
-    ClubEventService
+    ClubEventService,
+    LoginService
   ],
   bootstrap: [AppComponent]
 })

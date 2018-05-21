@@ -10,11 +10,18 @@
           </div>
         </div>
         <div class="row  postcontent">
-          <div [innerHTML]="'<h3>'+cle.content+'</h3>'">
+          <div [innerHTML]="'<h3>'+cle.content+'</h3>'" class="text">
           </div>
           <div class=" postimg">
             <img src="{{cle.poster}}">
           </div>
+          <div class="join">
+            <h3 class="col-sm-8">已有：100人参加</h3>
+            <button  type="button" class="btn btn-primary btn-lg col-sm-4">
+              <span>我要参加</span>
+            </button>
+          </div>
+
         </div>
       </div>
     </div>

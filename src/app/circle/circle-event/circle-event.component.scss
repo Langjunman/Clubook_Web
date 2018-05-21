@@ -3,14 +3,29 @@
 }
 .postheader{
   text-align: center;
-  padding-bottom: 20px;
+  padding: 20px;
+  border-bottom-style: solid;
 }
 .postcontent{
+  padding: 20px;
+  border-bottom-style: solid;
+}
+.text{
+  padding: 20px;
 }
 .postimg{
+
   text-align: center;
+
+}
+img{
+  width: 60%;
+  height: auto;
 }
 .t1{
   padding-right: 100px;
   padding-left: 100px;
 }
+.join{
+  margin-top: 50px;
+ }

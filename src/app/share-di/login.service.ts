@@ -1,43 +1,49 @@
-import {
-  Injectable
-} from '@angular/core';
-import {
-  Observable
-} from 'rxjs/Rx';
-import {Http, Response} from '@angular/http';
+import {Injectable} from '@angular/core';
+import {Observable} from 'rxjs/Rx';
+import {Http, Response, Headers, RequestOptions} from '@angular/http';
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/map';
+import {User} from '../user/model/user-model';
+import {Subject} from 'rxjs/Subject';
 
 @Injectable()
 export class LoginService {
 
   constructor(public http: Http) {
-    //console.log('Hello RestProvider Provider');
   }
+  public userLoginURL = 'mock-data/user-login-mock.json';
 
   //post
   private apiUrlLogin = 'http://clubook.club/api/user/auth';
   private apiUrlRegister = 'http://clubook.club/api/user/register';
   private apiUrlGetInfo = 'http://clubook.club/api/user/getinfo';
-  private apiUrlChangeNickName = 'http://clubook.club/api/user/change_nick_name';
-
+  private apiUrlUpdateNickName = 'http://clubook.club/api/user/change_nickname';
+  public subject: Subject<User> = new Subject<User>();
+  public get currentUser():Observable<User>{
+    return this.subject.asObservable();
+  }
   /**
    * 根据用户id获取用户信息
    *
    * @param {any} nickname
    * @returns {Observable<string[]>}
    * @memberof RestProvider
+   *
    */
-  getUserInfo(userid): Observable < string[] > {
-    return this.postUrlReturn(this.apiUrlGetInfo, {
-      "userid": userid
+  getUserInfo(token): Observable < string[] > {
+    let headers = new Headers({
+      Authorization: "Bearer " + token
     });
+    return this.getUrlReturn(this.apiUrlGetInfo, headers);
   }
 
-  changeNickName(nickname): Observable < string[] > {
-    return this.postUrlReturn(this.apiUrlChangeNickName, {
+  updateNickName(nickname,token): Observable < string[] > {
+    let headers = new Headers({
+      Authorization: "Bearer " + token
+    });
+    return this.postUrlReturn(this.apiUrlUpdateNickName, {
       "nickname": nickname
-    })
+    },headers);
   }
   /**
    * 根据用户名，密码，邮箱进行注册
@@ -48,13 +54,13 @@ export class LoginService {
    * @returns {Observable<string[]>}
    * @memberof RestProvider
    */
-  register(name, password, email): Observable < string[] > {
-    return this,
-      this.postUrlReturn(this.apiUrlRegister, {
-        "name": name,
-        "password": password,
-        "email": email
-      });
+  register(name, password, email, nickname): Observable < string[] > {
+    return this.postUrlReturn(this.apiUrlRegister, {
+      "name": name,
+      "password": password,
+      "email": email,
+      "nickname": nickname
+    });
   }
 
   /**
@@ -72,6 +78,31 @@ export class LoginService {
     });
   }
 
+  public dologin(user:User){
+    return this.http
+      .get(this.userLoginURL)
+      .map((response: Response) => {
+        let user = response.json();
+        console.log("user object>"+user);
+        if(user && user.token){
+          localStorage.setItem("currentUser",JSON.stringify(user));
+          this.subject.next(Object.assign({},user));
+        }
+        return response;
+      })
+      .subscribe(
+        data => {
+          console.log("login success>"+data);
+        },
+        error => {
+          console.error(error);
+        }
+      );
+  }
+  public dologout():void{
+    localStorage.removeItem("currentUser");
+    this.subject.next(Object.assign({}));
+  }
   /**
    * 全局POST获取HTTP请求的方法
    *
@@ -81,8 +112,11 @@ export class LoginService {
    * @returns {Observable<string[]>}
    * @memberof RestProvider
    */
-  private postUrlReturn(url: string, body: any): Observable < string[] > {
-    return this.http.post(url, body)
+  private postUrlReturn(url: string, body: any,headers?:Headers): Observable < string[] > {
+    let opitins = new RequestOptions({
+      headers: headers
+    });
+    return this.http.post(url, body, opitins)
       .map(this.extractData)
       .catch(this.handleError);
   }
@@ -95,8 +129,11 @@ export class LoginService {
    * @returns {Observable<string[]>}
    * @memberof RestProvider
    */
-  private getUrlReturn(url: string): Observable < string[] > {
-    return this.http.get(url)
+  private getUrlReturn(url: string, headers?:Headers ): Observable < string[] > {
+    let opitins = new RequestOptions({
+      headers: headers
+    });
+    return this.http.get(url, opitins)
       .map(this.extractData)
       .catch(this.handleError);
   }

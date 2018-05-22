@@ -32,11 +32,11 @@
         </nz-badge></li>
 
         <li routerLinkActive="active">
-          <a routerLink="profile"><h4 style="color: #488aff">欢迎您：{{currentUser?.userName}}</h4></a>
+          <a routerLink="profile"><h4 style="color: #488aff">欢迎您：{{usersname}}</h4></a>
         </li>
 
         <li>
-          <a href="javascript:void(0);" (click)="doLogout()"><h4 style="color: #488aff">退出</h4></a>
+          <a href="javascript:void(0);" (click)="Logout()"><h4 style="color: #488aff">退出</h4></a>
         </li>
       </ul>
     </div>

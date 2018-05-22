@@ -10,12 +10,13 @@ import { User } from '../model/user-model';
   styleUrls: ['./user-login.component.scss']
 })
 export class UserLoginComponent implements OnInit {
-  public user: User = new User();
+  public currentUser: User = new User();
   public error: Error;
   public rest;
   public name: any;
   public password: any;
   public errorMessage: any;
+
   constructor(
     public router: Router,
     public loginService: LoginService
@@ -27,7 +28,7 @@ export class UserLoginComponent implements OnInit {
 
 
   public login() {
-    this.loginService.login(this.user.userName, this.user.password)
+    this.loginService.login(this.currentUser.userName, this.currentUser.password)
       .subscribe(
         f => {
           console.log(f);
@@ -38,12 +39,20 @@ export class UserLoginComponent implements OnInit {
             // this.storage.get('token').then((val)=>{
             //   console.log(val);
             // });
+            this.router.navigateByUrl("/home");
+
           } else {
             console.log(f['status_code']);
           }
         },
         error => this.errorMessage = < any > error);
+    this.loginService.dologin(this.currentUser);
   }
 
 
+
+  public Logout():void{
+    this.loginService.dologout();
+    this.router.navigateByUrl("home");
+  }
 }

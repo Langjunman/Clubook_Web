@@ -4,6 +4,7 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
 import { User } from '../model/user-model';
 import { UserRegisterService } from './user-register.service';
+import {LoginService} from '../../share-di/login.service';
 @Component({
   selector: 'user-register',
   templateUrl: './user-register.component.html',
@@ -16,6 +17,7 @@ export class UserRegisterComponent implements OnInit {
 
   public formErrors = {
     'userName': '',
+    'nickName': '',
     'email': '',
     'password': '',
     'confirmPassword': '',
@@ -26,6 +28,10 @@ export class UserRegisterComponent implements OnInit {
     'userName': {
       'required': '用户名必须输入。',
       'minlength': '用户名4到32个字符。'
+    },
+    'nickName': {
+      'required': '昵称必须输入。',
+      'minlength': '昵称4到32个字符。'
     },
     'email': {
       'required': '邮箱必须输入。',
@@ -42,6 +48,7 @@ export class UserRegisterComponent implements OnInit {
     },
   };
   constructor(public fb: FormBuilder,
+    public loginService: LoginService,
     public userRegisterService: UserRegisterService,
     public router: Router,
     public route: ActivatedRoute, ) {
@@ -55,6 +62,14 @@ export class UserRegisterComponent implements OnInit {
     this.userForm = this.fb.group({
       "userName":[
         this.userInfo.userName,
+        [
+          Validators.required,
+          Validators.minLength(4),
+          Validators.maxLength(32)
+        ]
+      ],
+      "nickName":[
+        this.userInfo.nickName,
         [
           Validators.required,
           Validators.minLength(4),
@@ -111,7 +126,18 @@ export class UserRegisterComponent implements OnInit {
 
           if (this.userForm.valid) {
             this.userInfo = this.userForm.value;
-            this.userRegisterService.register(this.userInfo)
+            this.loginService.register(this.userInfo.userName, this.userInfo.password, this.userInfo.email,this.userInfo.nickName)
+              .subscribe(
+                f => {
+                  if (f["status_code"] == "666") {
+                    this.router.navigateByUrl("login");
+                  }
+                },
+                error => {
+                  this.formErrors.formError = error.message;
+                  console.error(error);
+                });
+           /* this.userRegisterService.register(this.userInfo)
               .subscribe(
               data => {
                 this.router.navigateByUrl("home");
@@ -120,11 +146,12 @@ export class UserRegisterComponent implements OnInit {
                 this.formErrors.formError = error.message;
                 console.error(error);
               }
-              );
+              );*/
           } else {
             this.formErrors.formError = "存在不合法的输入项，请检查。";
           }
           console.log(this.userInfo);
+
   }
 
 }

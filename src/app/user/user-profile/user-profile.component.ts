@@ -24,7 +24,7 @@ export class UserProfileComponent implements OnInit {
       label: '用户名:',
       placeholder: '用户名'
     }),
-    new Textbox({
+  /*  new Textbox({
       label: '常用邮箱:',
       placeholder: '常用邮箱'
     }),
@@ -42,7 +42,7 @@ export class UserProfileComponent implements OnInit {
       label: '个人简介:',
       placeholder: '个人简介，最多140字，不能放链接。',
       rows: 3,
-    })
+    })*/
   ];
 
   public form: FormGroup;

@@ -130,6 +130,7 @@ export class UserRegisterComponent implements OnInit {
               .subscribe(
                 f => {
                   if (f["status_code"] == "666") {
+                    console.log(this.userInfo);
                     this.router.navigateByUrl("login");
                   }
                 },
@@ -150,7 +151,7 @@ export class UserRegisterComponent implements OnInit {
           } else {
             this.formErrors.formError = "存在不合法的输入项，请检查。";
           }
-          console.log(this.userInfo);
+
 
   }
 

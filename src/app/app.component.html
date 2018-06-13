@@ -2,9 +2,10 @@
   <!-- 页头 -->
   <div class="page-header">
     <div class="row">
-      <div class="col-md-2">
-        <h1>Clubook</h1>
+      <div class="col-md-2 t11">
+        <img class="image"   src="http://p0sewq7er.bkt.clouddn.com/clubook.jpg">
       </div>
+
       <div class="col-md-5">
         <div class="input-group">
           <input type="text" class="form-control" placeholder="Search for...">
@@ -25,14 +26,14 @@
       </div>
 
       <ul *ngIf="currentUser?.userName" class="col-md-3 col-md-offset-2 nav navbar-nav navbar-right">
-        <li><nz-badge [nzCount]="5" style="margin-right: 24px">
+        <li><nz-badge >
           <ng-template #content>
-            <nz-avatar nzIcon="user" [nzShape]="'square'" [nzSize]="'large'"></nz-avatar>
+            <nz-avatar nzIcon="anticon anticon-user" nzSrc="headface"></nz-avatar>
           </ng-template>
         </nz-badge></li>
 
         <li routerLinkActive="active">
-          <a routerLink="profile"><h4 style="color: #488aff">欢迎您：{{usersname}}</h4></a>
+          <a routerLink="userinformation"><h4 style="color: #488aff">欢迎您：{{usersname}}</h4></a>
         </li>
 
         <li>
@@ -47,10 +48,10 @@
     <!-- 侧栏导航 -->
     <div class="col-md-2 c2">
       <ul class="nav nav-pills nav-stacked">
-        <li *ngIf="currentUser?.userName" role="presentation" routerLinkActive="active">
+        <li  role="presentation" routerLinkActive="active">
           <a routerLink="home"><h3 style="color: #488aff">首页</h3></a>
         </li>
-        <li role="presentation" routerLinkActive="active">
+        <li *ngIf="currentUser?.userName" role="presentation" routerLinkActive="active">
           <a routerLink="discover"><h3 style="color: #488aff">发现</h3></a>
         </li>
         <li *ngIf="!currentUser?.userName" role="presentation" routerLinkActive="active">
@@ -64,6 +65,7 @@
         </li>
       </ul>
     </div>
+
     <!-- 主体内容 -->
     <div class="col-md-10 c1">
       <router-outlet></router-outlet>

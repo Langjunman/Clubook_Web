@@ -1,67 +1,108 @@
-<div class="ui container">
-  <h3 class="ui left floated header">你的圈子</h3>
-  <button class="ui green right floated button" (click)="showModal()">
-    <span><i class="add circle icon"></i>新建圈子</span>
-  </button>
-  <nz-modal [nzVisible]="isVisible" [nzTitle]="modalTitle" [nzContent]="modalContent" [nzFooter]="modalFooter" (nzOnCancel)="handleCancel($event)">
-    <ng-template #modalTitle>
-      创建圈子
-    </ng-template>
-    <ng-template #modalContent  >
-      <div class="ui form">
-        <div class="field">
-          <label >圈子名称:</label>
-          <input placeholder="为圈子命名" name="circleName" [(ngModel)]="newName">
-        </div>
-        <div class="field">
-          <label >圈子图标:</label>
-          <input type="file" id="newUpload" placeholder="选择图标" >
-        </div>
-        <div class="filed">
-          <label >圈子简介:</label>
-          <textarea name="" id="" cols="30" rows="10" [(ngModel)]="newIntro"></textarea>
-        </div>
-        <div class="ui toggle checkbox">
-          <input type="checkbox" name="public">
-          <label>
-            <div class="header">申请加入</div>
-            <div class="meta">
-              <span>他人需要提出申请才能加入你的圈子</span>
-            </div>
-          </label>
-        </div> <button nz-button [nzType]="'default'" [nzSize]="'large'" (click)="handleCancel($event)">
-        取 消
+<div class="ui container maincss">
+  <ul nz-menu [nzMode]="'horizontal'" >
+    <li nz-menu-item  (click)="switchToRec()"><i class="anticon anticon-mail"></i>推荐圈子</li>
+    <li nz-menu-item   (click)="switchToMem()">
+      加入的圈子
+    </li>
+    <li nz-menu-item   (click)="switchToYours()">
+      创建的圈子
+    </li>
+    <div [ngSwitch]="circleswitch">
+    <div *ngSwitchCase="'yours'">
+      <button class="ui green right floated button" (click)="showModal()">
+        <span><i class="add circle icon"></i>新建圈子</span>
       </button>
-        <button nz-button [nzType]="'primary'" [nzSize]="'large'" (click)="addCircle()" [nzLoading]="isConfirmLoading">
-          完 成
-        </button>
-      </div>
-    </ng-template>
-    <ng-template #modalFooter>
+      <nz-modal [nzVisible]="isVisible" [nzTitle]="modalTitle" [nzContent]="modalContent" [nzFooter]="modalFooter" (nzOnCancel)="handleCancel($event)">
+        <ng-template #modalTitle>
+          创建圈子
+        </ng-template>
+        <ng-template #modalContent  >
+          <div class="ui form">
+            <div class="field">
+              <label >圈子名称:</label>
+              <input placeholder="为圈子命名" name="circleName" [(ngModel)]="name">
+            </div>
+            <div class="field">
+              <label >圈子图标:</label>
+              <input type="file" id="newUpload" placeholder="选择图标" >
+            </div>
+            <div class="filed">
+              <label >圈子简介:</label>
+              <textarea name="" id="" cols="30" rows="10" [(ngModel)]="brief"></textarea>
+            </div>
+            <div class="ui toggle checkbox">
+              <input type="checkbox" name="public">
+              <label>
+                <div class="header">申请加入</div>
+                <div class="meta">
+                  <span>他人需要提出申请才能加入你的圈子</span>
+                </div>
+              </label>
+            </div> <button nz-button [nzType]="'default'" [nzSize]="'large'" (click)="handleCancel($event)">
+            取 消
+          </button>
+            <button nz-button [nzType]="'primary'" [nzSize]="'large'" (click)="createCircle()" [nzLoading]="isConfirmLoading">
+              完 成
+            </button>
+          </div>
+        </ng-template>
+        <ng-template #modalFooter>
 
-    </ng-template>
-  </nz-modal>
+        </ng-template>
+      </nz-modal>
+    </div>
+</div>
+  </ul>
 
 </div>
 
+<div [ngSwitch]="circleswitch">
+  <div *ngSwitchCase="'recommend'">
+    <div class="ui centered grey card col-md-4 col-sm-4 col-lg-4 t1" *ngFor="let circles of recommendFeeds"  >
+      <a class="image" href="#" [routerLink]="['/circled',circles.id]">
+        <img src="http://placehold.it/150x100">
+      </a>
 
+      <a class="content" href="#" [routerLink]="['/circled',circles.id]">
+        <div class="header">{{circles.name}}</div>
+        <div class="description">
+          6324 个成员
+        </div>
 
-
-
-<div class="ui centered grey card col-md-4 col-sm-4 col-lg-4 t1" *ngFor="let circles of circleList"  >
-  <a class="image" href="#" [routerLink]="['/circled',circles.circleId]">
-    <img src={{circles.circleAvatar}}>
-  </a>
-
-  <a class="content" href="#" [routerLink]="['/circled',circles.circleId]">
-    <div class="header">{{circles.circleName}}</div>
-    <div class="description">
-      {{circles.circleMembers}} 个成员
+      </a>
+      <button nz-button nzType="primary" (click)="join(circles.id)">加入</button>
     </div>
-  </a>
-  <div class="extra content">
-    <a>
-      加入
-    </a>
+  </div>
+
+  <div *ngSwitchCase="'member'">
+    <div class="ui centered grey card col-md-4 col-sm-4 col-lg-4 t1" *ngFor="let circles of memberFeeds"  >
+      <a class="image" href="#" [routerLink]="['/circled',circles.id]">
+        <img src="http://placehold.it/150x100">
+      </a>
+
+      <a class="content" href="#" [routerLink]="['/circled',circles.id]">
+        <div class="header">{{circles.name}}</div>
+        <div class="description">
+          6324 个成员
+        </div>
+      </a>
+
+    </div>
+  </div>
+  <div *ngSwitchCase="'yours'">
+    <div class="ui centered grey card col-md-4 col-sm-4 col-lg-4 t1" *ngFor="let f of myFeeds"  >
+      <a class="image" href="#" [routerLink]="['/circled',f.id]">
+        <img src="http://placehold.it/150x100">
+      </a>
+
+      <a class="content" href="#" [routerLink]="['/circled',f.id]">
+        <div class="header">{{f.name}}</div>
+        <div class="description">
+          6324 个成员
+        </div>
+
+      </a>
+
+    </div>
   </div>
 </div>

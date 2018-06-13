@@ -1,8 +1,26 @@
 <div class="post-detail-main-container" >
+  <nz-breadcrumb style="margin-top:-10px;margin-left: 20px">
+    <nz-breadcrumb-item>
+      <a [routerLink]="['../../../']">首页</a>
+    </nz-breadcrumb-item>
+    <nz-breadcrumb-item>
+      <a [routerLink]="['../../']">圈子</a>
+    </nz-breadcrumb-item>
+    <nz-breadcrumb-item>
+      <a  (click)="goBack()">圈子详情</a>
+    </nz-breadcrumb-item>
+    <nz-breadcrumb-item>
+      <a >{{ cie.title }}</a>
+    </nz-breadcrumb-item>
+
+  </nz-breadcrumb>
   <div class="row">
     <div class="col-sm-12 t1">
+
       <div class="post-detail-container">
+
         <div class="row ">
+
           <div class=" postheader">
             <h1>{{ cie.title }}</h1>
             <h3>发布者 ：{{ cie.author}}</h3>

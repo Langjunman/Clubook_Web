@@ -100,7 +100,9 @@ export class LoginService {
       );
   }
   public dologout():void{
-    localStorage.removeItem("currentUser");
+    localStorage.removeItem('currentUser');
+    localStorage.removeItem('userinfo');
+    localStorage.removeItem('userval');
     this.subject.next(Object.assign({}));
   }
   /**

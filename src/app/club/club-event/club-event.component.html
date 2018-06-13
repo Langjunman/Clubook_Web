@@ -1,4 +1,19 @@
 <div class="post-detail-main-container" >
+
+  <nz-breadcrumb style="margin-top:-10px;margin-left: 20px">
+    <nz-breadcrumb-item>
+      <a [routerLink]="['../../../']">首页</a>
+    </nz-breadcrumb-item>
+    <nz-breadcrumb-item>
+      <a [routerLink]="['../../']">社团</a>
+    </nz-breadcrumb-item>
+    <nz-breadcrumb-item>
+      <a  (click)="goBack()">社团详情</a>
+    </nz-breadcrumb-item>
+    <nz-breadcrumb-item>
+      <a >{{ cle.title }}</a>
+    </nz-breadcrumb-item>
+  </nz-breadcrumb>
   <div class="row">
     <div class="col-sm-12 t1">
       <div class="post-detail-container">

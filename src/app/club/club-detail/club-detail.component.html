@@ -1,4 +1,56 @@
+<div class="ui container maincss">
+  <button class="ui green right floated button" (click)="showModal()">
+    <span><i class="add circle icon"></i>发布活动</span>
+  </button>
+  <nz-modal [nzVisible]="isVisible" [nzTitle]="modalTitle" [nzContent]="modalContent" [nzFooter]="modalFooter" (nzOnCancel)="handleCancel($event)">
+    <ng-template #modalTitle>
+      发布活动
+    </ng-template>
+    <ng-template #modalContent  >
+      <div class="ui form">
+        <div class="field">
+          <label >活动标题:</label>
+          <input placeholder="为消息命名" name="circleName" [(ngModel)]="newName">
+        </div>
+        <div class="field">
+          <label >活动海报:</label>
+          <input type="file" id="newUpload" placeholder="选择图标" >
+        </div>
+        <div class="filed">
+          <label >活动简介:</label>
+          <textarea name="" id="" cols="30" rows="10" [(ngModel)]="newIntro"></textarea>
+        </div>
+        <div class="ui toggle checkbox">
+          <input type="checkbox" name="public">
+
+        </div> <button nz-button [nzType]="'default'" [nzSize]="'large'" (click)="handleCancel($event)">
+        取 消
+      </button>
+        <button nz-button [nzType]="'primary'" [nzSize]="'large'" (click)="addClubPage()" [nzLoading]="isConfirmLoading">
+          完 成
+        </button>
+      </div>
+    </ng-template>
+    <ng-template #modalFooter>
+
+    </ng-template>
+  </nz-modal>
+
+</div>
 <div class="post-list-container t1">
+  <nz-breadcrumb style="margin-top:-10px">
+    <nz-breadcrumb-item>
+      <a [routerLink]="['../../']">首页</a>
+    </nz-breadcrumb-item>
+    <nz-breadcrumb-item>
+      <a [routerLink]="['/club']">社团</a>
+    </nz-breadcrumb-item>
+    <nz-breadcrumb-item>
+     <!-- {{club.name}}-->
+      喂
+    </nz-breadcrumb-item>
+  </nz-breadcrumb>
+  <h3 class="ui left floated header"><!--{{club.name}}-->孙晓川</h3>
   <div class="row">
     <div class="col-sm-12">
       <div class="post-item-container" *ngFor="let cle of cleList">

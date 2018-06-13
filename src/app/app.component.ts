@@ -67,7 +67,6 @@ export class AppComponent {
 
         if (this.userval != null) {
           //加载用户数据
-
           this.loginService.getUserInfo(this.userval)
             .subscribe(userinfo => {
                 this.userinfo = userinfo;
@@ -92,9 +91,9 @@ export class AppComponent {
 
 public Logout(): void {
   this.loginService.dologout();
-
-  localStorage.removeItem('currentUser');
-   localStorage.removeItem('userval');
+  localStorage.removeItem('this.userinfo');
+  this.userval='';
+  console.log(this.userval);
 
   this.createNotification('success','退出成功','欢迎你下次使用');
     this.router.navigateByUrl("");

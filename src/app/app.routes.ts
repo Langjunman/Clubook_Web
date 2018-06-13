@@ -17,7 +17,7 @@ import {ClubEventComponent} from './club/club-event/club-event.component';
 export const appRoutes = [
     {
         path: '',
-        redirectTo: 'discover',
+        redirectTo: 'home',
         pathMatch: 'full'
     },
     {
@@ -62,10 +62,10 @@ export const appRoutes = [
     },
     {
         path: 'userinformation',
-        component:UserInformationComponent
+        component: UserInformationComponent
     },
     {
-        path: 'profile',
+        path: 'information',
         component: UserProfileComponent
     }
     // {

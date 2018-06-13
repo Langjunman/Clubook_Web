@@ -1,8 +1,15 @@
 
-
-<div >
-  <div class="ui container">
-    <h3 class="ui left floated header">你的社团</h3>
+<div class="ui container maincss">
+  <ul nz-menu [nzMode]="'horizontal'" ngDefaultControl >
+    <li nz-menu-item  (click)="switchToRec()"><i class="anticon anticon-mail"></i>推荐社团</li>
+    <li nz-menu-item   (click)="switchToMem()">
+      加入的社团
+    </li>
+    <li nz-menu-item   (click)="switchToYours()">
+      创建的社团
+    </li>
+    <div [ngSwitch]="clubswitch">
+      <div *ngSwitchCase="'yours'">
     <button class="ui green right floated button" (click)="showModal()">
   <span>
     <i class="add circle icon"></i>新建社团</span>
@@ -15,7 +22,7 @@
         <div class="ui form">
           <div class="field">
             <label >社团名称:</label>
-            <input placeholder="为社团命名" name="clubN" [(ngModel)]="newName">
+            <input placeholder="为社团命名" name="clubN" [(ngModel)]="name">
           </div>
           <div class="field">
             <label >社团图标:</label>
@@ -23,7 +30,7 @@
           </div>
           <div class="filed">
             <label >社团简介:</label>
-            <textarea name="" id="" cols="30" rows="10" [(ngModel)]="newIntro" ></textarea>
+            <textarea name="" id="" cols="30" rows="10" [(ngModel)]="brief" ></textarea>
           </div>
           <div class="ui toggle checkbox">
             <input type="checkbox" name="public">
@@ -38,7 +45,7 @@
         <button nz-button [nzType]="'default'" [nzSize]="'large'" (click)="handleCancel($event)">
           取 消
         </button>
-        <button nz-button [nzType]="'primary'" [nzSize]="'large'" (click)="addClub()" [nzLoading]="isConfirmLoading">
+        <button nz-button [nzType]="'primary'" [nzSize]="'large'" (click)="createClub()" [nzLoading]="isConfirmLoading">
           完 成
         </button>
       </ng-template>
@@ -46,28 +53,67 @@
 
       </ng-template>
     </nz-modal>
-
-  </div>
-
-
-  <div class="ui centered grey card col-md-4 col-sm-4 col-lg-4 t1" *ngFor="let clubs of clubList">
-    <a class="image" href="#" [routerLink]="['/clubd',clubs.clubId]">
-      <img src={{clubs.clubAvatar}}>
-    </a>
-
-    <a class="content" href="#" [routerLink]="['/clubd',clubs.clubId]">
-      <div class="header">{{clubs.clubName}}</div>
-      <div class="description">
-        {{clubs.clubMembers}} 个成员
       </div>
-    </a>
-    <div class="extra content">
-      <a>
-        加入
+    </div>
+  </ul>
+
+</div>
+
+  <div [ngSwitch]="clubswitch">
+    <div *ngSwitchCase="'recommend'">
+
+      <div class="ui centered grey card col-md-4 col-sm-4 col-lg-4 t1 " *ngFor="let clubs of recommendFeeds">
+        <a class="image" href="#" [routerLink]="['/clubd',clubs.id]">
+          <img class="img1"   src="http://placehold.it/150x100">
+        </a>
+
+        <a class="content" href="#" [routerLink]="['/clubd',clubs.id]">
+          <div class="header">{{clubs.name}}</div>
+          <div class="description">
+            6324 个成员
+          </div>
+        </a>
+        <button nz-button nzType="primary" (click)="join(clubs.id)">加入</button>
+
+      </div>
+    </div>
+  </div>
+  <div [ngSwitch]="clubswitch">
+    <div *ngSwitchCase="'member'">
+
+      <div class="ui centered grey card col-md-4 col-sm-4 col-lg-4 t1 " *ngFor="let clubs of memberFeeds">
+        <a class="image" href="#" [routerLink]="['/clubd',clubs.id]">
+          <img class="img1"   src="http://placehold.it/150x100">
+        </a>
+
+        <a class="content" href="#" [routerLink]="['/clubd',clubs.id]">
+          <div class="header">{{clubs.name}}</div>
+          <div class="description">
+            6324 个成员
+          </div>
+        </a>
+
+      </div>
+    </div>
+  </div>
+  <div [ngSwitch]="clubswitch">
+    <div *ngSwitchCase="'yours'">
+
+
+
+    <div class="ui centered grey card col-md-4 col-sm-4 col-lg-4 t1 " *ngFor="let clubs of myFeeds">
+      <a class="image" href="#" [routerLink]="['/clubd',clubs.id]">
+        <img class="img1"   src="http://placehold.it/150x100">
       </a>
+
+      <a class="content" href="#" [routerLink]="['/clubd',clubs.id]">
+        <div class="header">{{clubs.name}}</div>
+        <div class="description">
+          6324 个成员
+        </div>
+      </a>
+
+    </div>
     </div>
   </div>
 
-
-
-</div>

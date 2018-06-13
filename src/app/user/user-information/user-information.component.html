@@ -1,3 +1,22 @@
-<p>
-  user-information works!
-</p>
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h3 class="panel-title">修改个人信息</h3>
+  </div>
+  <div class="panel-body">
+      <button (click)="gotoHeadFace()">
+        <h2>修改头像</h2>
+      </button>
+      <img src={{headface}}>
+
+        <label>用户昵称</label>
+        <input nz-input placeholder="修改用户昵称" [(ngModel)]="nickname" style="width: 100px">
+
+
+    <div padding text-center class="paddingTop">
+      <button ion-button color="primary" block (click)="updateNickName()">保存</button>
+    </div>
+    <div padding text-center class="paddingTop">
+      <button ion-button color="danger" block (click)="logout()">注销</button>
+    </div>
+  </div>
+</div>

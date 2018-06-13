@@ -21,4 +21,7 @@ export class ClubEventComponent implements OnInit {
     let id:number = this.routerInfo.snapshot.params['id'];
     this.cle = this.cleService.getCle(id);
   }
+  goBack() {
+    history.go(-1);
+  }
 }

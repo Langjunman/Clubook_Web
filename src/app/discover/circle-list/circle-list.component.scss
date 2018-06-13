@@ -12,10 +12,12 @@
 
 :host ::ng-deep .custom-image img {
   display: block;
+
 }
 
 :host ::ng-deep .custom-card {
   padding: 10px 16px;
+  border-top:1px solid gray;
 }
 
 :host ::ng-deep .custom-card p {
